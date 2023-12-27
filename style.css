@@ -133,6 +133,6 @@ video {
 
     /* Adjust video for mobile */
     .video-container {
-        display: block; /* Hide the video container on mobile */
+        display: none; /* Hide the video container on mobile */
     }
 }

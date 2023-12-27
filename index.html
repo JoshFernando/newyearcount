@@ -26,9 +26,17 @@
     }
      
     .countdown div {
-      font-size: 2em; /* Adjust font size for readability */
-      margin: 20px 0; /* Add margin to separate elements */
+      width: 100%; /* Make sure the background covers the full width */
+      text-align: center; /* Center the text */
+      padding: 20px 0; /* Add padding to cover the full height */
+      margin: 10px 0; /* Space between elements */
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      color: white; /* Text color */
+      box-sizing: border-box; /* Include padding in width calculation */
+      font-size: 3em;
     }
+
+    
     #day, #hour, #minute, #second {
       padding: 5px;
       border-radius: 5px;
@@ -37,12 +45,10 @@
 
      /* Navbar styles */
      .navbar {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      background-color: #333;
-      color: white;
-      padding: 10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: transparent; /* Make background transparent */
     }
 
     .navbar a {
@@ -62,17 +68,17 @@
   </style>
 </head>
 <body>
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#bingo">Bingo</a>
+    <a href="#menu">Menu</a>
+  </div>
   <video src="./video/fireworks.mp4" muted autoplay loop></video>
   <audio src="./Tieng-phao-hoa-no-tren-bau-troi-www_tiengdong_com.mp3" autoplay loop></audio>
   <div class="container">
     <h2>
       <span>Countdown to New Year</span><span id="year">Calculating...</span>
     </h2>
-    <div class="navbar">
-      <a href="#home">Home</a>
-      <a href="#bingo">Bingo</a>
-      <a href="#menu">Menu</a>
-    </div>
     <div class="countdown">
       <div id="day">NA</div>
       <div id="hour">NA</div>

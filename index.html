@@ -7,6 +7,7 @@
   <title>Countdown to New Year</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Add your CSS styles here for the video and audio elements */
     video {
       position: fixed;
       top: 0;
@@ -15,19 +16,16 @@
       min-height: 100%;
       width: auto;
       height: auto;
-      z-index: -1;
       object-fit: cover;
+      z-index: -1; /* Place it behind other content */
     }
 
-    /* Media Query for Mobile Devices */
     @media (max-width: 600px) {
       .countdown div {
         font-size: 2em; /* Larger font for better readability */
         padding: 0.5em; /* Spacing to prevent overlap */
       }
     }
-
-    /* Additional styles for the play button */
     #playButton {
       position: fixed;
       top: 50%;
@@ -47,11 +45,12 @@
       z-index: 2;
       color: #fff; /* Change color as needed for visibility */
     }
+
   </style>
 </head>
 <body>
-  <video id="fireworksVideo" src="./video/fireworks.mp4" muted loop></video>
-  <audio id="fireworksAudio" src="./Tieng-phao-hoa-no-tren-bau-troi-www_tiengdong_com.mp3" loop></audio>
+  <video src="./video/fireworks.mp4" muted autoplay loop></video>
+  <audio src="./Tieng-phao-hoa-no-tren-bau-troi-www_tiengdong_com.mp3" autoplay loop></audio>
   <button id="playButton">Start Celebration</button>
   <div class="container">
     <h2>
@@ -68,10 +67,10 @@
   <script type="text/javascript">
     setInterval(function () {
       let today = new Date();
-      let nextYear = today.getFullYear() + (today.getMonth() === 11 && today.getDate() >= 31 ? 1 : 0);
+      let nextYear = today.getFullYear() + 1;
       let countDate = new Date(`Jan 1, ${nextYear} 00:00:00`).getTime();
       let now = new Date().getTime();
-      let gap = countDate - now;
+      gap = countDate - now;
 
       let second = 1000;
       let minute = second * 60;
@@ -83,19 +82,13 @@
       let m = Math.floor((gap % hour) / minute);
       let s = Math.floor((gap % minute) / second);
 
-      document.getElementById("day").innerText = d + " Days";
-      document.getElementById("hour").innerText = h + " Hours";
-      document.getElementById("minute").innerText = m + " Minutes";
-      document.getElementById("second").innerText = s + " Seconds";
-      document.getElementById("year").innerText = "Countdown to New Year " + nextYear;
+      document.getElementById("day").innerText = d;
+      document.getElementById("hour").innerText = h;
+      document.getElementById("minute").innerText = m;
+      document.getElementById("second").innerText = s;
+      document.getElementById("year").innerText = nextYear;
       
     }, 1000);
-
-    document.getElementById("playButton").addEventListener("click", function() {
-      document.getElementById("fireworksVideo").play();
-      document.getElementById("fireworksAudio").play();
-      this.style.display = 'none';
-    });
   </script>
 </body>
 </html>

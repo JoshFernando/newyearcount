@@ -39,6 +39,17 @@
       border: none;
       border-radius: 5px;
     }
+
+    /* Ensure visibility of countdown and title */
+    .container h2, .countdown div {
+      color: #fff; /* Change color as needed for visibility */
+      text-align: center;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
@@ -59,8 +70,28 @@
 
   <script type="text/javascript">
     setInterval(function () {
-      // Existing countdown code...
+      let today = new Date();
+      let nextYear = today.getFullYear() + (today.getMonth() === 11 && today.getDate() > 31 ? 1 : 0);
+      let countDate = new Date(`Jan 1, ${nextYear} 00:00:00`).getTime();
+      let now = new Date().getTime();
+      let gap = countDate - now;
 
+      let second = 1000;
+      let minute = second * 60;
+      let hour = minute * 60;
+      let day = hour * 24;
+
+      let d = Math.floor(gap / day);
+      let h = Math.floor((gap % day) / hour);
+      let m = Math.floor((gap % hour) / minute);
+      let s = Math.floor((gap % minute) / second);
+
+      document.getElementById("day").innerText = d + " Days";
+      document.getElementById("hour").innerText = h + " Hours";
+      document.getElementById("minute").innerText = m + " Minutes";
+      document.getElementById("second").innerText = s + " Seconds";
+      document.getElementById("year").innerText = "Countdown to New Year " + nextYear;
+      
     }, 1000);
 
     // Play video and audio on user interaction

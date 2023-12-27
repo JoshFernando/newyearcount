@@ -19,10 +19,22 @@
 
         /* Media Query for Mobile Devices */
         @media (max-width: 600px) {
-      .countdown div {
-        font-size: 2em; /* Larger font for better readability */
-        padding: 0.5em; /* Spacing to prevent overlap */
-      }
+    .countdown {
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center align items */
+    }
+     
+    .countdown div {
+      font-size: 2em; /* Adjust font size for readability */
+      margin: 10px 0; /* Add margin to separate elements */
+    }
+    #day, #hour, #minute, #second {
+      padding: 5px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.7); /* Optional: for better visibility */
+    }
+    
     }
   </style>
 </head>

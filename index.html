@@ -17,6 +17,17 @@
       object-fit: cover;
       z-index: -1; /* Place it behind other content */
     }
+
+    audio {
+      display: none; /* Hide the audio element */
+    }
+
+    /* Add spacing between countdown elements on mobile */
+    @media (max-width: 768px) {
+      .countdown div {
+        margin: 10px; /* Add some margin for spacing */
+      }
+    }
   </style>
 </head>
 <body>
